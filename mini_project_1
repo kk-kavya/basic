@@ -1,0 +1,43 @@
+name=str(input("Enter the name of the student:"))
+age=int(input("Enter the age of the student:"))
+num=int(input("Enter the number of subjects:"))
+subjects,marks,total,avg,percentage,grade=[],[],0,0,0,'0'
+for i in range(1,num+1):
+    sub=str(input(f'Enter the name of the subject{i}: '))
+    subjects.append(sub)
+    m=int(input(f'Enter the marks in {sub}: '))
+    marks.append(m)
+for i in range(len(marks)):
+    total+=marks[i]
+percentage=(total/(num*100))*100
+print(f'=== Student Marks === \nName of the student: {name}\nAge of the student: {age}\nThe subjects with marks are:')
+for i in range(len(subjects)):
+    print(f'{subjects[i]} ; {marks[i]}')
+print(f'Total marks are:{total}')
+print(f'Average is:{total/num}')
+print(f'Percentage={percentage}%')
+failed = any(mark < 35 for mark in marks)
+if failed:
+    grade = 'F'
+else:
+    if percentage >= 90:
+        grade = 'A'
+    elif percentage >= 75:
+        grade = 'B'
+    elif percentage >= 60:
+        grade = 'C'
+    elif percentage >= 50:
+        grade = 'D'
+    elif percentage >= 35:
+        grade = 'E'
+    else:
+        grade = 'F'
+print(f'Grade={grade}')
+
+
+
+
+
+
+
+   
