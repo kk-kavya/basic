@@ -1,0 +1,56 @@
+def calculate_grade(average):
+    if average >= 90:
+        return 'A'
+    elif average >= 75:
+        return 'B'
+    elif average >= 60:
+        return 'C'
+    elif average >= 40:
+        return 'D'
+    else:
+        return 'F'
+
+students = []
+
+s = int(input("Enter number of subjects: "))
+t = int(input("Enter total maximum marks: "))
+n = int(input("Enter number of students: "))
+
+for i in range(1, n + 1):
+    print(f"\nEnter details of student {i}:")
+    name = input("Enter name: ")
+    
+    # keep asking until valid marks are entered
+    while True:
+        total = int(input("Total marks the student secured: "))
+        if total > t:
+            print(f"Invalid! Marks cannot exceed total {t}. Please re-enter.")
+        else:
+            break
+    
+    average = total / s
+    grade = calculate_grade(average)
+    students.append((name, total, average, grade))
+
+# Displaying the report
+print(f"\n{'Name':<12}{'Total':<10}{'Average':<10}{'Grade':<10}")
+print("-" * 45)
+for name, total, average, grade in students:
+    print(f"{name:<12}{total:<10}{average:<10.2f}{grade:<10}")
+
+# Grade Summary
+print("\nGrade Summary:")
+for g in ['A', 'B', 'C', 'D', 'F']:
+    print(f"{g}: {sum(1 for student in students if student[3] == g)}")
+
+# Saving report to file
+with open("report.txt", "w") as f:
+    f.write(f"{'Name':<12}{'Total':<10}{'Average':<10}{'Grade':<10}\n")
+    f.write("-" * 45 + "\n")
+    for name, total, average, grade in students:
+        f.write(f"{name:<12}{total:<10}{average:<10.2f}{grade:<10}\n")
+    f.write("\nGrade Summary:\n")
+    for g in ['A', 'B', 'C', 'D', 'F']:
+        f.write(f"{g}: {sum(1 for student in students if student[3] == g)}\n")
+
+print("\n✅ Report saved to report.txt")
