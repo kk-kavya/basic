@@ -1,0 +1,35 @@
+import csv
+import statistics as s
+avg=[]
+n=[]
+with open("students.csv", "w", newline="") as file:
+    writer = csv.writer(file)
+    writer.writerow(["Name", "Age", "Marks"])
+    writer.writerow(["Kavya", 21, 96])
+    writer.writerow(["Ravi", 20, 75])
+    writer.writerow(["Sai", 22, 85])
+    writer.writerow(["Sri", 21, 90])
+    writer.writerow(["Raj", 20, 45])
+    writer.writerow(["Rani", 22, 82])
+    writer.writerow(["Rajesh", 21, 56])
+    writer.writerow(["Ramesh", 20, 63])
+
+with open("students.csv","r") as file:
+    reader = csv.DictReader(file)
+    
+    for row in reader:
+        print(row)
+        avg.append(int(row["Marks"]))
+        if int(row["Marks"]) > 80:
+            n.append(row["Name"])
+    print(f'\n{avg}')
+
+    print("\nAverage marks of students is :",s.mean(avg))  
+    print(f'\nStudents who scored more than 80 are : ')
+    for i in n:
+        print(i)
+    
+        
+
+    
+
