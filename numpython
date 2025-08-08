@@ -1,0 +1,40 @@
+import numpy as np
+product_week=np.array([[50,30,20],
+                       [60,25,25],
+                       [55,40,30],
+                       [70,35,40]])
+print(f'Total sales of each product:\n{np.sum(product_week,axis=0)}')
+print(f'Total sales of each week:\n{np.sum(product_week,axis=1)}')
+print(f'Sales of Product-B:\n{product_week[:,1]}') 
+print(f'Product with highest sales in week 3:\n{np.max(product_week[2,:])}')
+updated_sales = product_week * 1.10
+print(f'Updated sales after 10% increase:\n{updated_sales}')
+
+
+arr = np.arange(20, 51)  # creates array from 20 to 50
+print("Original array:\n", arr)
+
+even_numbers = arr[arr % 2 == 0]
+print("Even numbers:\n", even_numbers)
+
+
+
+
+arr=np.array([[1,2,3],[4,5,6],[7,8,9]])
+print(arr)
+print(f'Sum of all elements is:\n{np.sum(arr)}')
+print(f'Mean of each column is:\n{np.mean(arr,axis=0)}')
+print(f'Multiplying each element with 10 is:\n{arr*10}')
+arr2=np.array([2,4,6])
+arr3=np.array([1,3,5])
+result=np.concatenate((arr3,arr2))
+print(f'Concatenated array is:\n{result}')
+print(f'Squaring each element:\n{result**2}')
+print(f'Squaring each element:\n{np.square(result)}')
+print(f'Logarithm of each element:\n{np.log(result)}')
+
+arr = np.array([1.234, 3.567, 7.891])
+
+print(f'1.{np.round(arr, 2)}')  # Round to 2 decimals
+print(f'2.{np.floor(arr)}')     # Floor (round down)
+print(f'3.{np.ceil(arr)}')      # Ceil (round up)
