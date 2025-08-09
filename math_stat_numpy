@@ -1,0 +1,43 @@
+import numpy as np
+arr = np.array([1, 2, 3])
+
+print("Exponential:", np.exp(arr))       # e^x
+print("Log base e:", np.log(arr))        # ln(x)
+print("Log base 10:", np.log10(arr))     # log10(x)
+
+
+data = np.array([12, 15, 18, 10, 20, 25, 30])
+# Minimum and Maximum
+min_val = np.min(data)
+max_val = np.max(data)
+print(f'\n\nActual data: {data}')
+print(f'\nSorted list in ascending order: {np.sort(data)}')
+print("\nMin:", min_val, "| Max:", max_val)
+
+# Percentiles
+p25 = np.percentile(data, 25)  # 25th percentile
+p50 = np.percentile(data, 50)  # 50th percentile (Median)
+p75 = np.percentile(data, 75)  # 75th percentile
+
+print("25th percentile:", p25)
+print("50th percentile:", p50)
+print("75th percentile:", p75)
+
+arr1=([[1,2],[3,4]])
+arr2=([[5,6],[7,8]])
+stack_axis0 = np.stack((arr1, arr2), axis=0)
+stack_axis1 = np.stack((arr1, arr2), axis=1)
+
+print(stack_axis0.shape)  # (2, 2, 2)
+print(stack_axis1.shape)  # (2, 2, 2)
+
+arr3 = np.array([[1, 2], [3, 4], [5, 6], [7, 8]])
+v_split = np.vsplit(arr3, 2)
+print(v_split)
+h_split = np.hsplit(arr3, 2)
+print(h_split)
+
+arr4 = np.array([5, 10, 15, 20, 25, 30])
+
+print("Cumulative Sum:", np.cumsum(arr4))  # Running total
+print("Cumulative Product:", np.cumprod(arr4))  # Running multiplication
