@@ -1,0 +1,34 @@
+class BankAccount:
+  def __init__(self, balance, deposits, withdrawals):
+      self.balance = balance
+      self.deposits = deposits
+      self.withdrawals = withdrawals
+
+  def deposit(self, amount):
+      self.balance += amount
+      self.deposits.append(amount)
+      print(f"Deposited ₹{amount}.\n\nNew balance is ₹{self.balance}.")
+
+  def withdraw(self, amount):
+      try:
+          if amount > self.balance:
+              raise ValueError("\n⚠️  INSUFFICIENT FUNDS!!!\n\n❌ Withdrawl not possible!!\n\n--------------------------------------------------------------\n")
+          self.balance -= amount
+          self.withdrawals.append(amount)
+          print(f"\nWithdrew ₹{amount}.\n\nNew balance is ₹{self.balance}.")
+          print("\nTransaction successful.")
+      except ValueError as e:
+          print(e)
+      finally:
+          print("Transaction summary:")
+          print(f"\nDeposits: {self.deposits}")
+          print(f"\nWithdrawals: {self.withdrawals}")
+          print(f"\nFinal balance: ₹{self.balance}")
+          print("\n--------------------------------------------------------------")
+          print("\n✅ Transaction complete.")
+          print("\nThank you for banking with us.")
+          print("\nGoodbye!")
+
+account = BankAccount(400, [], [])
+account.deposit(50)
+account.withdraw(500)
