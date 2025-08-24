@@ -1,0 +1,44 @@
+class Student:
+  def __init__(self, name, subjects):
+      self.name = name
+      self.subjects = subjects  # Dictionary: {"Math": 85, "Science": 92}
+
+  def calculate_grade(self, marks):
+      if marks >= 90:
+          return "A"
+      elif marks >= 80:
+          return "B"
+      elif marks >= 70:
+          return "C"
+      elif marks >= 60:
+          return "D"
+      else:
+          return "F"
+  def total_marks(self):
+      total = sum(self.subjects.values())
+      return total
+
+  def average_marks(self):
+      total = self.total_marks()
+      count = len(self.subjects)
+      return total / count if count > 0 else 0
+
+  def final_grade(self):
+      average = self.average_marks()
+      return self.calculate_grade(average)
+    
+  def generate_report(self):
+      print(f"\n📘 Student Report for {self.name}\n")
+      for subject, marks in self.subjects.items():
+          grade = self.calculate_grade(marks)
+          print(f"{subject:<10}   \nMarks: {marks:<3}   \nGrade: {grade}\n")
+      print("---------------------------------------------------------\n")
+      print("Student report summary:\n")
+      print(f"\nTotal Marks: {self.total_marks()}\n")
+      print(f"Average Marks: {self.average_marks():.2f}\n")
+      print(f"Final Grade: {self.final_grade()}\n")
+      print("---------------------------------------------------------\n")
+S1=Student("Rahul",{"Math": 85, "Science": 92})
+S1.total_marks()
+S1.average_marks()
+S1.generate_report()
